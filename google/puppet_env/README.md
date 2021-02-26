@@ -1,8 +1,6 @@
 # Introduction
 
-Repo for cloud deployments and automation
-
-Within the puppet_env folder python scripts deploy a Puppet Master\Client environment to GCP
+Deploys a Puppet Master\Client environment to GCP
 
 # How to run
 
@@ -14,7 +12,7 @@ Within the puppet_env folder python scripts deploy a Puppet Master\Client enviro
 		
 	3. Open a terminal window and log into your Google Cloud account
 		"gcloud auth login"
-	
+		
 	4. Edit the api_cloud_parameters.xml file with your desired network values, VM names etc
 	
 	5. Under Windows 
