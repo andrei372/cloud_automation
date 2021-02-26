@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<data>
+	<account-data>
+		<project-id>course-training-276318</project-id>
+	</account-data>
+	
+	<network>
+		<us>
+			<value>us-east1</value>
+			<value>us-prod-network</value>
+			<value>us-prod-subnet</value>
+			<value>10.10.10.0/24</value>
+			<value>us-prod-subnet-puppet-master</value>
+			<value>10.10.10.101</value>
+		</us>
+		<eu>
+			<value>europe-west2</value>
+			<value>eu-prod-network</value>
+			<value>eu-prod-subnet</value>
+			<value>10.10.20.0/24</value>
+			<value>eu-prod-subnet-puppet-master</value>
+			<value>10.10.20.101</value>
+		</eu>
+		<as>
+			<value></value>
+			<value></value>
+			<value></value>
+			<value></value>
+			<value></value>
+			<value></value>
+		</as>
+		<sa>
+			<value></value>
+			<value></value>
+			<value></value>
+			<value></value>
+			<value></value>
+			<value></value>
+		</sa>
+	</network>
+	
+	<puppet-master-data>
+		<puppet-master-name>gcloud-pm1</puppet-master-name>
+		<puppet-master-zone>us-east1-b</puppet-master-zone>
+		<puppet-master-network-subnet>us-prod-subnet</puppet-master-network-subnet>
+		<puppet-master-static-ip>10.10.10.101</puppet-master-static-ip>
+	</puppet-master-data>
+	
+	<puppet-client-data>
+		<puppet-client-name>gcloud-pc1</puppet-client-name>
+		<puppet-client-zone>us-east1-b</puppet-client-zone>
+		<puppet-client-network-subnet>us-prod-subnet</puppet-client-network-subnet>
+	</puppet-client-data>
+</data>

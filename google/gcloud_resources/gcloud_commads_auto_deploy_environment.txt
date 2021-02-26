@@ -1,0 +1,39 @@
+gcloud compute networks create us-prod-network --subnet-mode=custom
+gcloud compute networks create eu-prod-network --subnet-mode=custom
+gcloud compute networks create as-prod-network --subnet-mode=custom
+gcloud compute networks create sa-prod-network --subnet-mode=custom
+
+gcloud compute networks subnets create us-prod-subnet --network us-prod-network --range 10.10.10.0/24 --region us-east1
+gcloud compute networks subnets create us-prod-subnet --network us-prod-network --range 10.10.20.0/24 --region europe-west1
+gcloud compute networks subnets create us-prod-subnet --network us-prod-network --range 10.10.30.0/24 --region asia-east1
+gcloud compute networks subnets create us-prod-subnet --network us-prod-network --range 10.10.40.0/24 --region southamerica-east1
+
+gcloud compute addresses create us-prod-static-ip --region us-east1 --subnet us-prod-subnet --addresses 10.10.10.100 
+
+gcloud compute firewall-rules create us-allow-ssh-in --allow tcp:22 --direction INGRESS --network us-prod-network --priority 100
+gcloud compute firewall-rules create us-allow-http-in --allow tcp:80 --direction INGRESS --network us-prod-network --priority 110
+gcloud compute firewall-rules create us-allow-https-in --allow tcp:443 --direction INGRESS --network us-prod-network --priority 120
+gcloud compute firewall-rules create us-allow-rdp-in --allow tcp:3389 --direction INGRESS --network us-prod-network --priority 130
+gcloud compute firewall-rules create us-allow-internal --allow tcp:a11 --direction INGRESS --network us-prod-network --source-ranges="10.10.10.0/24" --priority 140
+
+gcloud compute firewall-rules create eu-allow-ssh-in --allow tcp:22 --direction INGRESS --network eu-prod-network --priority 100
+gcloud compute firewall-rules create eu-allow-http-in --allow tcp:80 --direction INGRESS --network eu-prod-network --priority 110
+gcloud compute firewall-rules create eu-allow-https-in --allow tcp:443 --direction INGRESS --network eu-prod-network --priority 120
+gcloud compute firewall-rules create eu-allow-rdp-in --allow tcp:3389 --direction INGRESS --network eu-prod-network --priority 130
+gcloud compute firewall-rules create eu-allow-internal --allow tcp:a11 --direction INGRESS --network eu-prod-network --source-ranges="10.10.20.0/24" --priority 140
+
+gcloud compute firewall-rules create as-allow-ssh-in --allow tcp:22 --direction INGRESS --network as-prod-network --priority 100
+gcloud compute firewall-rules create as-allow-http-in --allow tcp:80 --direction INGRESS --network as-prod-network --priority 110
+gcloud compute firewall-rules create as-allow-https-in --allow tcp:443 --direction INGRESS --network as-prod-network --priority 120
+gcloud compute firewall-rules create as-allow-rdp-in --allow tcp:3389 --direction INGRESS --network as-prod-network --priority 130
+gcloud compute firewall-rules create as-allow-internal --allow tcp:a11 --direction INGRESS --network as-prod-network --source-ranges="10.10.30.0/24" --priority 140
+
+gcloud compute firewall-rules create sa-allow-ssh-in --allow tcp:22 --direction INGRESS --network sm-prod-network --priority 100
+gcloud compute firewall-rules create sa-allow-http-in --allow tcp:80 --direction INGRESS --network sm-prod-network --priority 110
+gcloud compute firewall-rules create sa-allow-https-in --allow tcp:443 --direction INGRESS --network sm-prod-network --priority 120
+gcloud compute firewall-rules create sa-allow-rdp-in --allow tcp:3389 --direction INGRESS --network sm-prod-network --priority 130
+gcloud compute firewall-rules create sa-allow-internal --allow tcp:a11 --direction INGRESS --network sm-prod-network --source-ranges="10.10.40.0/24" --priority 140
+
+
+
+
